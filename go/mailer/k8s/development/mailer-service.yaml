@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailer
+  namespace: common-dev
+  labels:
+    app: mailer
+spec:
+  type: LoadBalancer
+  selector:
+    app: mailer
+  ports:
+    - port: 50051

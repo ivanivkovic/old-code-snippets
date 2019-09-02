@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cms-website
+  namespace: web-dev
+  labels:
+    app: cms-website
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cms-website
+  template:
+    metadata:
+      labels:
+        app: cms-website
+    spec:
+      containers:
+        - name: cms-website
+          image: eu.gcr.io/idb-mobile/domain/web/cms/website:0.1.0
+          ports:
+            - containerPort: 50051
+          env:
+            - name: APP_ENV
+              value: "development"
+            - name: APP_ADDR
+              value: ":50051"
+            - name: APP_NAME
+              value: "web/cms-website-dev"
+            - name: MYSQL_ADDR
+              value: "root:root@(cms-mysql:3306)/"

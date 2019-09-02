@@ -1,0 +1,26 @@
+[
+  {
+    "file_type": "csv",
+    "name": "top_level_domains",
+    "version": 1,
+    "url": "https://raw.githubusercontent.com/incognico/list-of-top-level-domains/master/tlds.csv",
+    "keys":{
+        "domain": "VARCHAR(255)",
+        "name":"VARCHAR(255)",
+        "type":"VARCHAR(20)"
+    },
+    "remove_rows": 0
+  },
+  {
+    "file_type": "csv",
+    "name": "top_level_domains2",
+    "version": 1,
+    "url": "https://raw.githubusercontent.com/incognico/list-of-top-level-domains/master/tlds.csv",
+    "keys":{
+        "domain": "VARCHAR(255)",
+        "name":"VARCHAR(255)",
+        "type":"VARCHAR(20)"
+    },
+    "remove_rows": 0
+  }
+]

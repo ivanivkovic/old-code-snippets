@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mailer;
+
+service Mailer {
+    rpc SendEmail(SendEmailRequest) returns (SendEmailResponse);
+}
+
+message SendEmailRequest {
+    string from = 1;
+    string to = 2;
+    string subject = 3;
+    string message = 4;
+    string content_type = 5;
+}
+
+message SendEmailResponse {}

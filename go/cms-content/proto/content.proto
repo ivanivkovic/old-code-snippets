@@ -1,0 +1,137 @@
+syntax = "proto3";
+
+package content;
+
+service ContentService{
+    rpc CreateContent(CreateContentRequest) returns (CreateContentResponse);
+    rpc UpdateContent(Content) returns (UpdateContentResponse);
+    rpc GetContent(GetContentRequest) returns (Content);
+    rpc GetContents(GetContentsRequest) returns (GetContentsResponse);
+
+    rpc CreateContentType(CreateContentTypeRequest) returns (CreateContentTypeResponse);
+    rpc UpdateContentType(ContentType) returns (UpdateContentTypeResponse);
+    rpc GetContentType(GetContentTypeRequest) returns (ContentType);
+    rpc GetAllContentTypes(GetAllContentTypesRequest) returns (GetAllContentTypesResponse);
+
+    rpc CreateCategory(CreateCategoryRequest) returns (CreateCategoryResponse);
+    rpc UpdateCategory(Category) returns (UpdateCategoryResponse);
+    rpc GetCategory(GetCategoryRequest) returns (Category);
+    rpc GetAllCategories(GetAllCategoriesRequest) returns (GetAllCategoriesResponse);
+}
+
+// -------------------
+// Content CRU packets
+// -------------------
+
+message Content {
+    int32 id = 1;
+    int32 category_id = 2;
+    string name = 3;
+    int32 type_id = 4;
+    string description = 5;
+    string thumbnail_url = 6;
+    string content_url = 7;
+    int32 size = 8;
+}
+
+message CreateContentRequest {
+    int32 category_id = 1;
+    string name = 2;
+    int32 type_id = 3;
+    string description = 4;
+    string thumbnail_url = 5;
+    string content_url = 6;
+    int32 size = 7;
+}
+
+message CreateContentResponse {
+    int32 id = 1;
+}
+
+message GetContentRequest {
+    int32 id = 1;
+}
+
+message GetContentsRequest {
+    int32 category_id = 1;
+    int32 type_id = 2;
+    string name = 3;
+    int32 page_size = 4;
+    int32 page_num = 5;
+}
+
+message GetContentsResponse {
+    repeated Content results = 1;
+    int32 pages_count = 2;
+}
+
+message UpdateContentResponse {
+}
+
+// -------------------
+// Content Type CRU packets
+// -------------------
+
+message ContentType {
+    int32 id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message CreateContentTypeRequest {
+    string name = 1;
+    string description = 2;
+}
+
+message CreateContentTypeResponse {
+    int32 id = 1;
+}
+
+message GetContentTypeRequest {
+    int32 id = 1;
+}
+
+message UpdateContentTypeResponse {
+}
+
+message GetAllContentTypesRequest {
+}
+
+message GetAllContentTypesResponse {
+    repeated ContentType results = 1;
+}
+
+// -------------------
+// Category CRU packets
+// -------------------
+
+message Category {
+    int32 id = 1;
+    int32 parent_id = 2;
+    string name = 3;
+    string description = 4;
+}
+
+message CreateCategoryRequest {
+    int32 parent_id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message CreateCategoryResponse {
+    int32 id = 1;
+}
+
+message GetCategoryRequest {
+    int32 id = 1;
+}
+
+message UpdateCategoryResponse {
+}
+
+message GetAllCategoriesRequest {
+}
+
+message GetAllCategoriesResponse {
+    repeated Category results = 1;
+}

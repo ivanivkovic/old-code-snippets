@@ -1,0 +1,15 @@
+#datepicker{cursor:pointer;text-align:center}
+.calendar{background-color:#FFF;font-family:'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;font-size:.9em;border:1px solid #DDD;width:17em;padding:.2em}
+.calendar .months{border:1px solid #c99;text-align:center;padding:.2em}
+.calendar .prev-month,.calendar .next-month{padding:0}
+.calendar .prev-month{float:left}
+.calendar .next-month{float:right}
+.calendar .current-month{margin:0 auto}
+.calendar .months .prev-month,.calendar .months .next-month{text-decoration:none;cursor:pointer;padding:0 .4em}
+.calendar .months .prev-month:hover,.calendar .months .next-month:hover{background-color:#ccc;color:#FFF}
+.calendar table{border-collapse:collapse;font-size:.8em;width:100%;padding:0}
+.calendar th{text-align:center}
+.calendar td{text-align:right;width:14.3%;padding:1px}
+.calendar td span{display:block;border:1px solid #CCC;text-decoration:none;cursor:pointer;padding:.2em}
+.calendar td span:hover{border:1px solid #f99}
+.calendar td.today span{border:1px solid #c55}

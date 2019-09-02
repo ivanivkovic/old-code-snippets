@@ -1,0 +1,130 @@
+syntax = "proto3";
+
+service WebsiteService{
+    rpc CreateWebsite(CreateWebsiteRequest) returns (CreateWebsiteResponse);
+    rpc UpdateWebsite(Website) returns (UpdateWebsiteResponse);
+    rpc GetWebsite(GetWebsiteRequest) returns (Website);
+    rpc GetAllWebsites(GetAllWebsitesRequest) returns (GetAllWebsitesResponse);
+
+    rpc CreateWebsiteContent(CreateWebsiteContentRequest) returns (CreateWebsiteContentResponse);
+    rpc UpdateWebsiteContent(WebsiteContent) returns (UpdateWebsiteContentResponse);
+    rpc GetWebsiteContent(GetWebsiteContentRequest) returns (WebsiteContent);
+    rpc GetWebsiteContents(GetWebsiteContentsRequest) returns (GetWebsiteContentsResponse);
+
+    rpc CreateWebsiteCategory(CreateWebsiteCategoryRequest) returns (CreateWebsiteCategoryResponse);
+    rpc UpdateWebsiteCategory(WebsiteCategory) returns (UpdateWebsiteCategoryResponse);
+    rpc GetWebsiteCategory(GetWebsiteCategoryRequest) returns (WebsiteCategory);
+    rpc GetAllWebsiteCategories(GetAllWebsiteCategoriesRequest) returns (GetAllWebsiteCategoriesResponse);
+}
+
+// -------------------
+// Website CRU packets
+// -------------------
+
+message Website{
+    int32 id = 1;
+    string name = 2;
+    string domain = 3;
+}
+
+message CreateWebsiteRequest {
+    string name = 1;
+    string domain = 2;
+}
+
+message CreateWebsiteResponse {
+    int32 id = 1;
+}
+
+message GetWebsiteRequest {
+    int32 id = 1;
+}
+
+message UpdateWebsiteResponse {
+}
+
+message GetAllWebsitesRequest {
+}
+
+message GetAllWebsitesResponse {
+    repeated Website results = 1;
+}
+
+// --------------------
+// Website Content CRU packets
+// --------------------
+
+message WebsiteContent {
+    int32 id = 1;
+    int32 website_id = 2;
+    int32 content_id = 3;
+    string name = 4;
+    int32 category_id = 5;
+    string description = 6;
+}
+
+message CreateWebsiteContentRequest {
+    int32 website_id = 1;
+    int32 content_id = 2;
+    int32 category_id = 3;
+    string name = 4;
+    string description = 5;
+}
+
+message CreateWebsiteContentResponse {
+    int32 id = 1;
+}
+
+message GetWebsiteContentRequest {
+    int32 id = 1;
+}
+
+message GetWebsiteContentsRequest {
+    int32 category_id = 1;
+    int32 website_id = 2;
+    int32 page_size = 3;
+    int32 page_num = 4;
+}
+
+message GetWebsiteContentsResponse {
+    repeated WebsiteContent results = 1;
+    int32 pages_count = 2;
+}
+
+message UpdateWebsiteContentResponse {
+}
+
+// -------------------
+// Website Category CRU packets
+// -------------------
+
+message WebsiteCategory {
+    int32 id = 1;
+    int32 parent_id = 2;
+    string name = 3;
+    string description = 4;
+}
+
+message CreateWebsiteCategoryRequest {
+    int32 parent_id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message CreateWebsiteCategoryResponse {
+    int32 id = 1;
+}
+
+message GetWebsiteCategoryRequest {
+    int32 id = 1;
+}
+
+message GetAllWebsiteCategoriesRequest {
+}
+
+message GetAllWebsiteCategoriesResponse {
+    repeated WebsiteCategory results = 1;
+}
+
+message UpdateWebsiteCategoryResponse {
+}

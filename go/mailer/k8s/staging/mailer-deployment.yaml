@@ -1,0 +1,67 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailer
+  namespace: common-staging
+  labels:
+    app: mailer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mailer
+  template:
+    metadata:
+      labels:
+        app: mailer
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - mailer
+                topologyKey: kubernetes.io/hostname
+      containers:
+        - name: mailer
+          image: eu.gcr.io/idb-mobile/common/mailer:0.2.1
+          ports:
+            - containerPort: 50051
+          env:
+            - name: APP_ENV
+              value: "staging"
+            - name: APP_NAME
+              value: "common/mailer-staging"
+            - name: APP_ADDR
+              value: ":50051"
+            - name: MS_USERNAME
+              value: "do-not-reply@idb-mobile.com"
+            - name: MS_PASSWORD
+              value: "Yaedaequ6naeB3ou"
+            - name: MS_HOST
+              value: "mail.idb-mobile.com"
+            - name: MS_PORT
+              value: "5587"
+        - name: jaeger-agent
+          image: jaegertracing/jaeger-agent:1.2.0
+          ports:
+            - containerPort: 5775
+              protocol: UDP
+              name: zipkin
+            - containerPort: 6831
+              protocol: UDP
+              name: compact
+            - containerPort: 6832
+              protocol: UDP
+              name: binary
+            - containerPort: 5778
+              name: config
+          env:
+            - name: COLLECTOR_HOST_PORT
+              value: "jaeger-collector.tracing.svc.cluster.local:14267"

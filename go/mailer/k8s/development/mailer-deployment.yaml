@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailer
+  namespace: common-dev
+  labels:
+    app: mailer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mailer
+  template:
+    metadata:
+      labels:
+        app: mailer
+    spec:
+      containers:
+        - name: mailer
+          image: eu.gcr.io/idb-mobile/common/mailer:0.2.1
+          ports:
+            - containerPort: 50051
+          env:
+            - name: APP_ENV
+              value: "development"
+            - name: APP_ADDR
+              value: ":50051"
+            - name: APP_NAME
+              value: "common/mailer-dev"
+            - name: MS_USERNAME
+              value: "do-not-reply@idb-mobile.com"
+            - name: MS_PASSWORD
+              value: "Yaedaequ6naeB3ou"
+            - name: MS_HOST
+              value: "mail.idb-mobile.com"
+            - name: MS_PORT
+              value: "5587"

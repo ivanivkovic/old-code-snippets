@@ -1,0 +1,4 @@
+[10-Oct-2012 20:54:50 UTC] PHP Fatal error:  Call to a member function listEntitiesByCriteria() on a non-object in /home/pixplore/public_html/admin/widgets/editor.php on line 97
+[10-Oct-2012 20:54:52 UTC] PHP Fatal error:  Call to a member function listEntitiesByCriteria() on a non-object in /home/pixplore/public_html/admin/widgets/editor.php on line 97
+[10-Oct-2012 20:54:52 UTC] PHP Fatal error:  Call to a member function listEntitiesByCriteria() on a non-object in /home/pixplore/public_html/admin/widgets/editor.php on line 97
+[10-Oct-2012 20:59:00 UTC] PHP Fatal error:  Call to a member function listEntitiesByCriteria() on a non-object in /home/pixplore/public_html/admin/widgets/editor.php on line 97

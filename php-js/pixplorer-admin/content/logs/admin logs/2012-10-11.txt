@@ -1,0 +1,2 @@
+13:48:48 - Ivan Ivković (#1) Custom Log : "Logs is now primary admin page."
+11:56:08 - Ivan Ivković (#1) Custom Log : "Admin now has custom logs option."

@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cms-content
+  namespace: web-dev
+  labels:
+    app: cms-content
+spec:
+  type: LoadBalancer
+  selector:
+    app: cms-content
+  ports:
+    - port: 50051

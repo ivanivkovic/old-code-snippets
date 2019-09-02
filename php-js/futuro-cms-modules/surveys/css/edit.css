@@ -1,0 +1,63 @@
+.chart-container h4{
+	margin-left: 5px;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.question .filter{
+	width: 53px !important;
+}
+
+.question{
+	border-top: 1px solid #999;
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+.chart-container h3{
+	margin: 20px 0px !important;
+}
+
+.questionDelete{
+	float: right;
+	display: block;
+	cursor: pointer;
+}
+
+.chart-container{
+	margin: 10px 20px;
+	width: 96%;
+}
+
+.chart-box, .chart-info, .chart-title{
+	height: 23px;
+	margin-bottom: 10px;
+}
+
+.chart-box{
+	width: 280px;
+	padding-right: 30px;
+}
+
+.chart-info{
+	width: 200px;
+}
+
+.chart-fill{
+	background-color: #faeeee;
+	height: 92%;
+	border-radius: 4px;
+}
+
+.chart-info h5, .chart-title h5{
+	margin-top: 3px;
+	color: #555;
+	font-weight: normal;
+}
+
+.answer{
+	width: 97% !important;
+	display: inline-block;
+}
+
+.del{ margin-top: 4px; }

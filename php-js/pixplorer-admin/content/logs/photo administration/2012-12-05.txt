@@ -1,0 +1,18 @@
+19:12:18 - Admin Ivan Ivković (#1) deleted Ivan Ivković's photo.
+	Photo ID : 821
+	User's ID : 26
+	User Name : Ivan Ivković
+	Photo URL : /135132673314476.jpg
+	Photo Description : 
+19:05:31 - Admin Ivan Ivković (#1) deleted Hana Thorne's photo.
+	Photo ID : 876
+	User's ID : 38
+	User Name : Hana Thorne
+	Photo URL : /135255363915875.jpg
+	Photo Description : 
+18:27:28 - Admin Ivan Ivković (#1) deleted Ivan Ivković's photo.
+	Photo ID : 822
+	User's ID : 26
+	User Name : Ivan Ivković
+	Photo URL : /135132673321211.jpg
+	Photo Description : 
